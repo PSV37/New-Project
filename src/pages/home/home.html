@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
     <ion-title>
       Ionic Blank
     </ion-title>
@@ -7,8 +7,36 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div>
+      <ion-item>
+        <ion-label fixed>Source:</ion-label>
+        <ion-input type="text" [(ngModel)]="Start"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label fixed>Destination:</ion-label>
+        <ion-input type="text" [(ngModel)]="End"></ion-input>
+      </ion-item> 
+      
+      <ion-item>
+      <ion-label>Select Travel Mode: </ion-label>
+        <ion-select [(ngModel)]="typeMode">
+          <ion-option value="DRIVING">DRIVING</ion-option>
+          <ion-option value="WALKING">WALKING</ion-option>
+          <ion-option value="BICYCLING">BICYCLING</ion-option>
+          <ion-option value="TRANSIT">TRANSIT</ion-option>
+        </ion-select>
+      </ion-item> 
+
+    </div>
+
+    <button ion-button  block (click)="calculateAndDisplayRoute()">Get Location</button><br>
+    <h3>Your Source and Destination</h3>
+
+   <b><i>Source</i></b> :{{Start}} <br>
+   <b><i>Destination</i></b> : {{End}} <br>
+   <b><i>Type Model </i></b> : {{typeMode}} 
+
+    <div id="map"></div>
+
 </ion-content>
